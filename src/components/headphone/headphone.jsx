@@ -1,4 +1,5 @@
 import { Codecs } from "../codecs/codecs";
+import { Counter } from "../counter/counter";
 import { Reviews } from "../reviews/reviews";
 
 export const Headphone = ({ name, brand, reviews, codecs }) => {
@@ -6,13 +7,16 @@ export const Headphone = ({ name, brand, reviews, codecs }) => {
     return null;
   }
 
+  const [] = useState();
+
   return (
     <section>
       <h2>{name}</h2>
       <h3>Brand</h3>
       <div>{brand}</div>
-      <Reviews reviews={reviews} />
+      {!!reviews.length && <Reviews reviews={reviews} />}
       <Codecs codecs={codecs} />
+      <Counter />
     </section>
   );
 };
