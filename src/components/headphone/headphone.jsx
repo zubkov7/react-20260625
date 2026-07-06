@@ -1,8 +1,19 @@
+import { useEffect } from "react";
 import { Codecs } from "../codecs/codecs";
 import { Counter } from "../counter/counter";
+import { ReviewForm } from "../review-form/review-form";
 import { Reviews } from "../reviews/reviews";
 
 export const Headphone = ({ name, brand, reviews, codecs }) => {
+  useEffect(() => {
+    console.log("mount Headphone");
+
+    // cleanu
+    return () => {
+      console.log("unmount Headphone");
+    };
+  }, []);
+
   if (!name) {
     return null;
   }
@@ -15,6 +26,7 @@ export const Headphone = ({ name, brand, reviews, codecs }) => {
       {Boolean(reviews.length) && <Reviews reviews={reviews} />}
       <Codecs codecs={codecs} />
       <Counter />
+      <ReviewForm />
     </section>
   );
 };
