@@ -7,14 +7,12 @@ export const Headphone = ({ name, brand, reviews, codecs }) => {
     return null;
   }
 
-  const [] = useState();
-
   return (
     <section>
       <h2>{name}</h2>
       <h3>Brand</h3>
       <div>{brand}</div>
-      {!!reviews.length && <Reviews reviews={reviews} />}
+      {Boolean(reviews.length) && <Reviews reviews={reviews} />}
       <Codecs codecs={codecs} />
       <Counter />
     </section>

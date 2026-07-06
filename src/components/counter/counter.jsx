@@ -1,30 +1,13 @@
-import { useState } from "react";
+import { useCount } from "./use-counter";
 
 export const Counter = () => {
-  //   console.log("render");
-  //   const [count, setCount] = useState(0);
-  const [count, setCount] = useState({ value: 0 });
-
-  //   const doubledCount = count * 2;
+  const { value, increment, decrement } = useCount();
 
   return (
     <div>
-      <button
-        onClick={() => {
-          //   setCount(count + 1);
-          setCount({ ...count, value: count.value + 1 });
-        }}
-      >
-        increment
-      </button>
-      <div>{count.value}</div>
-      <button
-        onClick={() => {
-          //   setCount(count - 1);
-        }}
-      >
-        decrement
-      </button>
+      <button onClick={increment}>+</button>
+      {value}
+      <button onClick={decrement}>-</button>
     </div>
   );
 };
