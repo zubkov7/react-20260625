@@ -10,7 +10,7 @@ export const Headphone = ({ name, brand, reviews, codecs }) => {
 
   return (
     <section>
-      <h2>{name}</h2>
+      <h2 style={{ color: "red" }}>{name}</h2>
       <h3>Brand - {brand}</h3>
       {reviews.length ? <Reviews reviews={reviews} /> : <div>empty review</div>}
       {codecs.length ? <Codecs codecs={codecs} /> : <div>empty codecs</div>}

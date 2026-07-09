@@ -4,7 +4,7 @@ import { ProgressBar } from "../progress-bar/progress-bar";
 
 export const Layout = ({ children }) => {
   return (
-    <div>
+    <div className='root'>
       <ProgressBar />
       <Header />
       <main>{children}</main>
