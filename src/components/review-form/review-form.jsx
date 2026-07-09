@@ -1,27 +1,33 @@
+import { Button } from "../button/button";
+import { Counter } from "../counter/counter";
 import { useForm } from "./use-form";
 
 export const ReviewForm = () => {
-  const { form, setName, setAddress, setText } = useForm();
+  const { form, setText, incrementRating, decrementRating, clear } = useForm();
 
-  const { name, text, address } = form;
+  const { text, rating } = form;
 
   return (
-    <form>
-      <div>
-        <span>name</span>
-        <input value={name} onChange={(event) => setName(event.target.value)} />
-      </div>
-      <div>
-        <span>text</span>
-        <input value={text} onChange={(event) => setText(event.target.value)} />
-      </div>
-      <div>
-        <span>address</span>
-        <input
-          value={address}
-          onChange={(event) => setAddress(event.target.value)}
+    <>
+      <h3>Review Form</h3>
+      <form onSubmit={(e) => e.preventDefault()}>
+        <div>
+          <span>Text</span>
+          <input
+            type='text'
+            value={text}
+            onChange={(event) => setText(event.target.value)}
+          />
+        </div>
+
+        <Counter
+          value={rating}
+          decrement={decrementRating}
+          increment={incrementRating}
         />
-      </div>
-    </form>
+
+        <Button title='Clear' onClick={clear} />
+      </form>
+    </>
   );
 };

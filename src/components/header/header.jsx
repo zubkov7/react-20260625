@@ -1,3 +1,7 @@
 export const Header = () => {
-  return <header>header</header>;
+  return (
+    <header>
+      <span>Headphones shop</span>
+    </header>
+  );
 };

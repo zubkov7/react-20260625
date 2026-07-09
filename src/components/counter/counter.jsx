@@ -1,40 +1,11 @@
-import { useEffect } from "react";
-import { useCount } from "./use-counter";
+import { Button } from "../button/button";
 
-const ANALYTICS_URL = "";
-
-export const Counter = () => {
-  const { value, increment, decrement } = useCount();
-
-  // useEffect(() => {
-  //   console.log("mount");
-  // }, []);
-
-  // console.log("before effect");
-
-  // useEffect(() => {
-  //   console.log("effect: ", value);
-
-  //   return () => {
-  //     console.log("cleanup: ", value);
-  //   };
-  // }, [value]);
-
-  // useEffect(() => {
-  //   fetch(ANALYTICS_URL);
-  // }, []);
-
-  // console.log("after effect");
-
-  useEffect(() => {
-    increment();
-  }, [increment]);
-
+export const Counter = ({ value, increment, decrement }) => {
   return (
     <div>
-      <button onClick={increment}>+</button>
-      {value}
-      <button onClick={decrement}>-</button>
+      <Button title='+' onClick={increment} size='400' />
+      <span>{value}</span>
+      <Button title='-' onClick={decrement} size='400' />
     </div>
   );
 };
