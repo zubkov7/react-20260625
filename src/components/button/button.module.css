@@ -1,19 +1,27 @@
 .root {
-    background-color: aqua;
+    box-shadow: none;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.9;
+    }
 }
 
-.xl {
-    font-size: 24px;
+.size500 {
+    font-size: 18px;
+    padding: 8px 16px;
 }
 
-.disabled {
-    background-color: grey;
-}
-
-.dark {
-    color: white;
+.size400 {
+    font-size: 16px;
+    padding: 7px 14px;
 }
 
 .light {
-    color: black
+    background-color: lightsalmon;
+}
+
+.dark {
+    background-color: lightsteelblue;
 }

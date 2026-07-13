@@ -1,3 +1,5 @@
+import styles from "./tabs.module.css";
+
 export const Tabs = ({ children }) => {
-  return <div>{children}</div>;
+  return <div className={styles.root}>{children}</div>;
 };

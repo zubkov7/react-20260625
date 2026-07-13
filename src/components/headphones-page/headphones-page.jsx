@@ -3,7 +3,6 @@ import { headphones } from "../../constants/mock";
 import { Headphone } from "../headphone/headphone";
 import { Button } from "../button/button";
 import { Tabs } from "../tabs/tabs";
-import { Tab } from "../tab/tab";
 
 export const HeadphonesPage = () => {
   const [activeHeadphoneId, setActiveHeadphoneId] = useState(headphones[0].id);
@@ -24,7 +23,7 @@ export const HeadphonesPage = () => {
 
       <Tabs>
         {headphones.map(({ name, id }) => (
-          <Tab
+          <Button
             key={id}
             title={name}
             onClick={() => handleSetActiveHeadphoneId(id)}
@@ -35,6 +34,7 @@ export const HeadphonesPage = () => {
 
       {activeHeadphone && (
         <Headphone
+          key={activeHeadphone.id}
           name={activeHeadphone.name}
           brand={activeHeadphone.brand}
           reviews={activeHeadphone.reviews}

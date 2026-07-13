@@ -1,3 +1,5 @@
+import styles from "./footer.module.css";
+
 export const Footer = () => {
-  return <footer>learn react</footer>;
+  return <footer className={styles.footer}>learn react</footer>;
 };

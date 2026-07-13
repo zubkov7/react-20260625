@@ -1,33 +1,25 @@
 import classNames from "classnames";
 import styles from "./button.module.css";
-import { useContext } from "react";
-import { ThemeContext } from "../theme-provider";
+import { use } from "react";
+import { ThemeContext } from "../theme-context";
 
 export const Button = ({
   title,
   onClick,
   disabled,
+  size = "500",
   className,
-  sizeViewVariant = "xl",
-  colorViewVariant = "active",
 }) => {
-  console.log(styles);
-  const { theme } = useContext(ThemeContext);
+  const { theme } = use(ThemeContext);
 
   return (
     <button
-      className={classNames(
-        className,
-        styles.root,
-        // disabled && styles.disabled,
-        {
-          [styles.disabled]: disabled,
-          [styles.xl]: sizeViewVariant === "xl",
-          [styles.l]: sizeViewVariant === "l",
-          [styles.dark]: theme === "dark",
-          [styles.light]: theme === "light",
-        },
-      )}
+      className={classNames(styles.root, className, {
+        [styles.size500]: size === "500",
+        [styles.size400]: size === "400",
+        [styles.dark]: theme === "dark",
+        [styles.light]: theme === "light",
+      })}
       disabled={disabled}
       onClick={onClick}
     >

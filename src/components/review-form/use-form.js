@@ -1,4 +1,4 @@
-import { useCallback, useReducer } from "react";
+import { useReducer } from "react";
 
 const DEFAULT_FORM_VALUE = {
   text: "",
@@ -15,7 +15,7 @@ const reducer = (state, { type, payload }) => {
     case SET_TEXT_ACTION:
       return { ...state, text: payload };
     case INCREMENT_RATING_ACTION:
-      return { ...state, rating: Math.min(state.rating + 1, 500) };
+      return { ...state, rating: Math.min(state.rating + 1, 5) };
     case DECREMENT_RATING_ACTION:
       return { ...state, rating: Math.max(state.rating - 1, 1) };
     case CLEAR_ACTION:
@@ -32,9 +32,9 @@ export const useForm = () => {
     dispatch({ type: SET_TEXT_ACTION, payload: text });
   };
 
-  const incrementRating = useCallback(() => {
+  const incrementRating = () => {
     dispatch({ type: INCREMENT_RATING_ACTION });
-  }, []);
+  };
 
   const decrementRating = () => {
     dispatch({ type: DECREMENT_RATING_ACTION });
