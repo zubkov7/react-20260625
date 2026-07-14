@@ -1,0 +1,20 @@
+import { useSelector } from "react-redux";
+import { selectHeadphoneById } from "../../redux/entities/headphone/slice";
+import { Button } from "../button/button";
+
+export const HeadphoneTab = ({ id, onClick, disabled }) => {
+  const headphone = useSelector((state) => selectHeadphoneById(state, id));
+
+  if (!headphone) {
+    return null;
+  }
+
+  return (
+    <Button
+      key={id}
+      title={headphone.name}
+      onClick={onClick}
+      disabled={disabled}
+    />
+  );
+};
