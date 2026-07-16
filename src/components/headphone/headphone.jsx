@@ -17,11 +17,15 @@ export const Headphone = ({ name, brand, reviews, codecs, id }) => {
     <section>
       <h2>{name}</h2>
       <h3>Brand - {brand}</h3>
-      {reviews.length ? <Reviews reviews={reviews} /> : <div>empty review</div>}
-      {codecs.length ? <Codecs codecs={codecs} /> : <div>empty codecs</div>}
+      {reviews.length ? (
+        <Reviews reviewsIds={reviews} />
+      ) : (
+        <div>empty review</div>
+      )}
+      {codecs.length ? <Codecs codecsIds={codecs} /> : <div>empty codecs</div>}
       {isAuthorized && (
         <>
-          <HeadphoneCounter id={id} />
+          <HeadphoneCounter headphoneId={id} />
           <ReviewForm />
         </>
       )}

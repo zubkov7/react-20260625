@@ -4,8 +4,8 @@ import { Button } from "../button/button";
 import { Tabs } from "../tabs/tabs";
 import { HeadphoneContainer } from "../headphone/headphone-container";
 import { useSelector } from "react-redux";
-import { selectHeadphonesIds } from "../../redux/entities/headphone/slice";
 import { HeadphoneTab } from "../headphone-tab/headphone-tab";
+import { selectHeadphonesIds } from "../../redux/entities/headphones/slice";
 
 export const HeadphonesPage = () => {
   const headphonesIds = useSelector(selectHeadphonesIds);

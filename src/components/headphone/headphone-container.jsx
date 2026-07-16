@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import { selectHeadphoneById } from "../../redux/entities/headphone/slice";
 import { Headphone } from "./headphone";
+import { selectHeadphoneById } from "../../redux/entities/headphones/slice";
 
 export const HeadphoneContainer = ({ id }) => {
   const headphone = useSelector((state) => selectHeadphoneById(state, id));
