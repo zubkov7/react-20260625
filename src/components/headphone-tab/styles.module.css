@@ -1,0 +1,9 @@
+.linkActive {
+    color: black;
+    pointer-events: none;
+}
+
+.link.active {
+    color: black;
+    pointer-events: none;
+}
