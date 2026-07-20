@@ -2,18 +2,33 @@ import { useParams } from "react-router";
 import { selectHeadphoneById } from "../redux/entities/headphones/slice";
 import { useSelector } from "react-redux";
 import { Reviews } from "../components/reviews/reviews";
+import { useGetReviewsByHeadphoneIdQuery } from "../redux/services/api/api";
+import { Review } from "../components/review/review";
 
 export const HeadphoneReviewsPage = () => {
   const { headphoneId } = useParams();
 
-  const headphone = useSelector((state) =>
-    selectHeadphoneById(state, headphoneId)
-  );
+  const { data, isFetching } = useGetReviewsByHeadphoneIdQuery(headphoneId);
 
-  const { reviews } = headphone || {};
+  if (isFetching) {
+    return "...loading";
+  }
 
-  return reviews.length ? (
-    <Reviews reviewsIds={reviews} />
+  // const headphone = useSelector((state) =>
+  //   selectHeadphoneById(state, headphoneId),
+  // );
+
+  // const { reviews } = headphone || {};
+
+  return data.length ? (
+    <div>
+      <h3>Reviews</h3>
+      {data?.map(({ text, user, id }) => (
+        <li key={id}>
+          <Review text={text} userId={user} />
+        </li>
+      ))}
+    </div>
   ) : (
     <div>empty review</div>
   );

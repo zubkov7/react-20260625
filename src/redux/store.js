@@ -4,6 +4,7 @@ import { reviewsSlice } from "./entities/reviews/slice";
 import { codecsSlice } from "./entities/codecs/slice";
 import { usersSlice } from "./entities/users/slice";
 import { cartSlice } from "./entities/cart/slice";
+import { api } from "./services/api/api";
 
 export const store = configureStore({
   reducer: {
@@ -12,5 +13,8 @@ export const store = configureStore({
     [codecsSlice.name]: codecsSlice.reducer,
     [usersSlice.name]: usersSlice.reducer,
     [cartSlice.name]: cartSlice.reducer,
+    [api.reducerPath]: api.reducer,
   },
+  middleware: (getDefaultMiddlewares) =>
+    getDefaultMiddlewares().concat(api.middleware),
 });

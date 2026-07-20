@@ -4,6 +4,18 @@ import { selectReviewById } from "../../redux/entities/reviews/slice";
 
 export const ReviewContainer = ({ id }) => {
   const review = useSelector((state) => selectReviewById(state, id));
+  // const review = useSelector((state) => selectReviewById(state, id));
+  // const review = useSelector((state) => selectReviewById(state, id));
+  // const review = useSelector((state) => selectReviewById(state, id));
+  // const review = useSelector((state) => selectReviewById(state, id));
+  // const review = useSelector((state) => selectReviewById(state, id));
+  // const review = useSelector((state) => selectReviewById(state, id));
+  // const review = useSelector((state) => selectReviewById(state, id));
+  // const review = useSelector((state) => selectReviewById(state, id));
+
+  // if (!isAuth) {
+  //   return null;
+  // }
 
   if (!review?.text) {
     return null;
